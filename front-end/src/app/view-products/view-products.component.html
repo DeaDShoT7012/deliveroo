@@ -1,0 +1,68 @@
+
+<!-- Header-->
+<header style="background-color: #171a29;; height: 300px;">
+    <div class="container px-5">
+        <div class="row gx- align-items-center justify-content-center">
+
+            <div style="height: 220px; width: 290px; background: #171a29;border-radius: 4%; margin-left: -180px;;"  
+                class="col-xl-2  col-xxl-6 d-none d-xl-block text-center"> <img style="height: 100%; width: 100%; border: 5px solid; border-color: aliceblue;"
+                class="img-fluid rounded-3 my-2 " [src]="viewproduct.image" alt="..." />
+            </div>
+
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+
+                <div class="my-5 text-center text-xl-start">
+                    <h1 class="display-5 fw-bolder text-white mx-5">{{viewproduct.title}}</h1>
+                    <p class="lead fw-normal text-white-50 mx-5">{{viewproduct.category}}</p>
+
+                    <p class="lead fw-normal text-white-50 mx-5">{{viewproduct.place}}</p>
+                    <p class="lead fw-normal text-light mx-5"><span class="fa-solid fa-star checked "></span>
+                    {{viewproduct.rating.rate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{viewproduct.time}} mins</p>
+                </div>
+                
+            </div>
+            
+            <!-- <div class="col-lg-1" >
+                    <img style="height: 250px; width: 350px;" src="https://lh3.googleusercontent.com/sVCqs8V2EenpCCNcP3l1-9IR213eTjMNBun7f4IdUQs8SkOrJTmwKmxWSJsuBfjYlPnVbWc_ED6oPUnkUHr8LXR0ALcYHs1k3bdAUufO" alt="">
+            </div> -->
+
+        </div>
+    </div>
+</header>
+
+<!-- Section-->
+
+<div>
+    <section class="py-5">
+        <div id="items" class="container px-4 px-lg-5 mt-5  ">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
+                <div class="col mb-5" *ngFor="let item of viewitems">
+                    <div style=" border-color: white; background: transparent;" class="card h-100">
+                        <!-- Product image-->
+                        <img height="150px" class="card-img-top " [src]="item.strCategoryThumb" alt="..." />
+                        <div  class="card-footer  border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" (click)="addtocart(item)">ADD</a></div>
+                      </div>
+                        <!-- Product details-->
+                        <div style="background: transparent;" class="card-body">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{item.strCategory}} &nbsp;&nbsp;|&nbsp;&nbsp;  ₹{{item.price}} </h5>
+                                <!-- Product price-->
+                                
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="chef">
+          </div>
+
+      </section>
+</div >
+
+

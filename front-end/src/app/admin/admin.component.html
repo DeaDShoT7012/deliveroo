@@ -1,0 +1,121 @@
+<h1>orders</h1>
+
+<div  class="container border">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">order id</th>
+            <th scope="col">item</th>
+            <th scope="col">name</th>
+            <th scope="col">amount</th>
+            <th scope="col">status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>300</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+</div >
+
+<br><br><br>
+
+
+<h1>Add restaurent</h1>
+
+<div class="container border p-3">
+    <!-- <div class="mb-3">
+        <label for="formFile" class="form-label">Default file input example</label>
+        <input class="form-control" type="file" id="formFile">
+      </div> -->
+
+     <form [formGroup]="restaurentForm" class="forms">
+          <div class="input-group">
+            <span class="input-group-text">restaurent name</span>
+            <input name="name" formControlName="name" type="text" aria-label="First name" class="form-control">
+          </div>
+          <!-- <div *ngIf="this.restaurentForm.get('name')?.errors&&this.restaurentForm.get('name')?.touched" class="text-danger mb-2">Invalid Name</div> -->
+
+          <div class="input-group">
+            <span class="input-group-text">Image</span>
+            <input name="image" formControlName="image" class="form-control" type="file" id="formFile">
+          </div> 
+          <!-- <div *ngIf="this.restaurentForm.get('image')?.errors&&this.restaurentForm.get('image')?.touched" class="text-danger mb-2">Invalid Name</div> -->
+
+          <div class="input-group">
+            <span class="input-group-text">place</span>
+            <input name="place" formControlName="place" type="text" aria-label="First name" class="form-control">
+          </div>
+          <!-- <div *ngIf="this.restaurentForm.get('place')?.errors&&this.restaurentForm.get('place')?.touched" class="text-danger mb-2">Invalid Name</div> -->
+
+          <div class="input-group">
+            <span class="input-group-text">type</span>
+            <input name="type" formControlName="type" type="text" aria-label="First name" class="form-control">
+          </div>
+          <!-- <div *ngIf="this.restaurentForm.get('type')?.errors&&this.restaurentForm.get('type')?.touched" class="text-danger mb-2">Invalid Name</div> -->
+
+          <div class="input-group">
+            <span class="input-group-text">delivery time</span>
+            <input name="time" formControlName="time" type="text" aria-label="First name" class="form-control">
+          </div>
+          <!-- <div *ngIf="this.restaurentForm.get('time')?.errors&&this.restaurentForm.get('time')?.touched" class="text-danger mb-2">Invalid Name</div> -->
+          <!-- <div>
+            <button (click)="add()">Add</button>
+          </div> -->
+    
+          <h1>restaurent items</h1> 
+         <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">name</th>
+                  <th scope="col">image</th>
+                  <th scope="col">amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              <tr>
+                            <td>
+                                <input name="itemName" formControlName="itemName" type="text" placeholder="name">
+                            </td>
+ 
+                            <td>
+                                <input name="itemImage" formControlName="itemImage" class="form-control" type="file" id="formFile">
+                            </td>
+                        
+                            <td>
+                                <input name="itemAmount" formControlName="itemAmount" type="text" placeholder="name">
+                            </td>
+              </tr>
+              <!-- <tr>
+                <td>
+                    <input name="itemName" formControlName="itemName" type="text" placeholder="name">
+                </td>
+                <td>
+                    <input name="itemImage" formControlName="ItemImage" class="form-control" type="file" id="formFile">
+                </td>
+                <td>
+                    <input name="itemAmount" formControlName="itemAmount" type="text" placeholder="name">
+                </td>
+          </tr><tr>
+            <td>
+                <input name="itemName" formControlName="itemName" type="text" placeholder="name">
+            </td>
+            <td>
+                <input name="itemImage" formControlName="ItemImage" class="form-control" type="file" id="formFile">
+            </td>
+            <td>
+                <input name="itemAmount" formControlName="itemAmount" type="text" placeholder="name">
+            </td>
+      </tr> -->
+      <button  (click)="upload()">upload</button>
+
+    </tbody>
+         </table>
+     </form>     
+</div>

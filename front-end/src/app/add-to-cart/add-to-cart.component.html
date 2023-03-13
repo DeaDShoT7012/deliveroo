@@ -1,0 +1,160 @@
+
+
+<div  style="background: white; width: 100%; height: auto; " >
+    
+    
+    <section *ngIf="cart.length==0"  style="background-color: white;">
+        <div class="row">
+            <div class="col">
+                <img class="img" src="https://teeful.ca/assets/images/empty-cart.png" alt="">
+            </div>
+        
+            <div class="col2 py-3" >
+                <button class="btns" routerLink="">SEE RESTAURENTS NEAR YOU</button>
+            </div>
+        
+        </div>   
+    </section> 
+    
+    
+         <!-- cart swiggy -->
+   
+        <div *ngIf="cart.length!=0"   class="row">
+            <div class="col-lg-1"> </div>
+            <div class="col-lg-3 bg-dange">
+                   <!-- <div id="address" class=" p-2 bg-white mt-5">  -->
+                    <div>
+                        <h4>Add Address</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="deliveryForm" class="forms">
+                          <div class="form-floating mb-3">
+                              <input name="name" formControlName="name" type="text" class="form-control" id="floatingInput" placeholder="Enter Name">
+                              <label for="floatingInput">Enter Name</label>
+                            </div>
+                            <div *ngIf="this.deliveryForm.get('name')?.errors&&this.deliveryForm.get('name')?.touched" class="text-danger mb-2">Invalid Name</div>
+                           
+                            <div class="form-floating mb-2">
+                              <input name="email" formControlName="email" type="email" class="form-control" id="floatingPassword" placeholder="Enter Email">
+                              <label for="floatingPassword">Enter Email</label>
+                            </div>
+                            <div *ngIf="this.deliveryForm.get('email')?.errors&&this.deliveryForm.get('email')?.touched" class="text-danger mb-2">Invalid Email</div>
+                            
+                            <div class="form-floating mb-2">
+                              <input name="mobile" formControlName="mobile" type="text" class="form-control" id="floatingPassword" placeholder="Enter Mobile No">
+                              <label for="floatingPassword">Enter Mobile No</label>
+                            </div>
+                            <div *ngIf="this.deliveryForm.get('mobile')?.errors&&this.deliveryForm.get('mobile')?.touched" class="text-danger mb-2">Invalid Mobile No</div>
+                            
+                            <div class="form-floating mb-2">
+                                <textarea name="address" formControlName="address" type="text" class="form-control" id="floatingPassword" placeholder="Enter Address"></textarea>
+                                <label for="floatingPassword">Enter Address</label>
+                              </div>
+                              <div *ngIf="this.deliveryForm.get('address')?.errors&&this.deliveryForm.get('address')?.touched" class="text-danger mb-2">Invalid Address </div>
+                              <button type="button" class="btns" (click)="deliver()">Deliver Here</button>
+                      </form>
+                  </div>
+
+                 
+                   <!-- </div> -->
+               <div style="margin-top: -50px;"> 
+                <h3>Payment</h3>
+               </div>
+               <!-- <div #paypalRef></div> -->
+               <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+
+            </div>
+
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-3 ">
+                <div style="width: 420px; border-radius: 10px;" class="p-2 mt-5">
+                    <section class="cart container mt-3 ">
+                        <div class=" d-flex">
+                            <div>
+                                <img width="90px" src= "https://b.zmtcdn.com/data/pictures/2/19442882/859639fc973e78cc23337902145fdf3a_o2_featured_v2.jpg?output-format=webp" alt="">            
+                            </div>
+                            <div class="px-3">
+                               <b>
+                                    Thomsons Casa  <br>
+                                    Ollur, East Fort
+                               </b>
+                            </div>
+                            
+                        </div>
+                        <hr>
+                            
+                        <div class="">
+                     
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Product Image</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of cart">
+                                        <th>1</th>
+                                        <th>
+                                            <img class="ms-3" height="50px" [src]="product.strCategoryThumb" alt="">
+                                        </th>
+                                        <th>
+                                            <button class="bot" (click)="Quantity('min')">-</button><input class="q" type="text" value={{productQuantity}}><button (click)="Quantity('plus')" class="bot">+</button>
+                                        </th>
+                                        <th>{{product.price}}</th>
+                                        <th>
+                                            <a  (click)="deletecart(product.strid)" class="text-danger btn"><i class="fa-solid fa-trash"></i></a>
+                                        </th>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                                
+                        </div>
+                    
+                        <div class="cupon " >
+                            <div class="brd py-2 ">
+                                <img  height="20px" src="https://static.thenounproject.com/png/1055803-200.png" alt="" > &nbsp;&nbsp;   Apply Coupon
+                            </div>
+                        </div>
+                    
+                        <div class="mt-3 ">
+                            
+                            <p class="fw-bolder">Bill Details</p>
+                            <div class="d-flex justify-content-between">
+                            <p>Item Total</p>
+                            <p>{{grandtotal}}</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                            <p>Delivery Fee</p>
+                            <p>₹45</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                            <p>Govt Taxes & Other Charges</p>
+                            <p>₹12</p>
+                            </div>
+                            <div style="background-color: black; width:100%; height: 2px;"></div>
+                            <div class="d-flex justify-content-between py-3">
+                            <p class="fw-bolder">TO PAY</p>
+                            <b>₹{{topay}}</b>
+                            </div>           
+                    </div>
+                    </section>
+
+                    <!-- <div (click)="deleteAllitem()" style="margin-left: 200px;">
+                        <button>delete</button>
+                      </div> -->
+
+                </div>
+            </div>
+        </div>
+
+</div>  
+
+
+
+     

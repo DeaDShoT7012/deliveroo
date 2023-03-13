@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="col-12 col-sm-3 col-md-4 col-lg-4 col-xl-8">
+		<img width="100%" src="https://i.pinimg.com/originals/e5/6d/4a/e56d4afe4614e549e07f6995467c57a4.gif" alt="no image">
+	</div>
+	
+		
+	<div class="col-12 col-sm-9 col-md-8 col-lg-8 col-xl-7 mt-5" id="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+		
+					<div class="signup">
+						<form (ngSubmit)="signup()" [formGroup]="signupForm" >
+							<label for="chk" aria-hidden="true">Sign UP</label>
+							<input name="user" formControlName="user"  type="text" placeholder="User name" required="">
+		          <div *ngIf="this.signupForm.get('user')?.errors&&this.signupForm.get('user')?.touched" class="text-danger text-center m-2">Invalid Username</div>
+		
+							<input name="email" formControlName="email" type="email"  placeholder="Email" required="">
+		          <div *ngIf="this.signupForm.get('email')?.errors&&this.signupForm.get('email')?.touched" class="text-danger text-center m-2">Invalid Email</div>
+		
+							<input name="pswd" formControlName="pswd" type="password"  placeholder="Password" required="">
+		          <div *ngIf="this.signupForm.get('pswd')?.errors&&this.signupForm.get('pswd')?.touched" class="text-danger text-center m-2">Invalid Password</div>
+		
+							<button  type="submit">Sign up</button>
+						</form>
+					</div>
+		
+					<div class="login">
+						<form (ngSubmit)="login()" [formGroup]="loginForm">
+							<label for="chk" aria-hidden="true">Log IN</label>
+							<input name="email" formControlName="email" type="email"  placeholder="Email" required="">
+		          <div *ngIf="this.loginForm.get('email')?.errors&&this.loginForm.get('email')?.touched" class="text-danger text-center m-2">Invalid Email</div>
+		          
+							<input name="pswd" formControlName="pswd" type="password"  placeholder="Password" required="">
+		          <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched" class="text-danger text-center m-2">Invalid Password</div>
+				  <div class="text-danger text-center">{{errormsg}}</div>
+		            <div  class="text-center">
+		              <a  href="">Forgot Password</a>
+		            </div>
+							<button type="submit">Log in
+							</button>
+						</form>
+					</div>
+			</div>
+		
+</div>
+

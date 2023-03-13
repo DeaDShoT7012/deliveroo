@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap');
+body{
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+    background: white;
+    /* background-image: url(background.png); */
+    /* background-size: cover; */
+    /* background-image: url(foodfalling.png); */
+
+}
+
+/* body {
+    background-image: url(https://images.unsplash.com/photo-1458682625221-3a45f8a844c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80);
+    
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:  cover;
+    
+  } */
+  
+/* 
+  body{
+	margin: 0;
+	padding: 0; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	 font-family: 'Jost', sans-serif;
+	
+  
+  } */

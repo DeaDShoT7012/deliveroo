@@ -1,0 +1,77 @@
+
+
+.col{
+    display:flex;
+    justify-content:center;
+}
+.img{
+    width: 950px;
+}
+
+.col2{
+    display: flex;
+    justify-content: center;
+}
+.btns{
+    background: #E75146;
+    color: white;
+    height: 40px;
+    border-radius: 9px;
+    border: none;
+}
+
+.cart{
+    background:white;
+    width: 400px;
+    height: 550px;
+}
+
+.brd{
+    text-align: center;
+    height: 45px;
+    width: 300px;
+    display:flex;
+    justify-content: center;
+    border: dotted;
+
+
+}
+.cupon{
+    background:white;
+    display:flex;
+    justify-content: center;
+}
+
+#address{
+    height: 500px;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.forms{
+    width: 300px;
+    height: 400px;
+}
+
+.btns1{
+    background: #E75146;
+    color: white;
+    border-radius: 9px;
+    height: 40px;
+    border: 0px;
+}
+.q{
+    width: 20px;
+    height: 30px;
+    border: 1px;
+}
+.bot{
+    color: #E75146;
+    background: white;
+    border-color:white;
+    border: 1px;
+    font-size: x-large;
+}
+

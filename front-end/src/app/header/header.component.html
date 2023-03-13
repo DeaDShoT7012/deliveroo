@@ -1,0 +1,93 @@
+<!-- navbar -->
+<nav  id="navbar" class="navbar navbar-expand-lg ">
+  <div class="container px-5">
+      <a class="navbar-brand text-light" routerLink="">
+          <img width="60px"  src="https://cdn.iconscout.com/icon/free/png-256/deliveroo-3443007-2875240.png?f=avif&w=256" alt="">&nbsp;&nbsp;<span style="color: #E75146; font-size: xx-large; font-weight: bold;" >deliveroo</span></a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+              <li *ngIf="!islogin" class="nav-item"><button  style="border-radius: 20px; width: 115px; border: 1px; background: #E75146;">
+                <a class="nav-link text-light"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <i class="fa-solid fa-user"></i>&nbsp;
+                  <span>Sign In </span> </a></button></li>&nbsp;
+
+                 <!-- <a href=""></a> <span *ngIf="!islogin">fgh</span>  &nbsp; <span *ngIf="islogin">gvhbnjmk</span> -->
+
+               <div class="dropdown">
+                 <li *ngIf="islogin" class="nav-item"><button class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                  style="border-radius: 20px; height: 42px; width: 115px; border: 1px; background: #E75146;"><a class="nav-link text-light" >
+                      <i class="fa-sharp fa-solid fa-user"></i>&nbsp;
+                          <b>{{name}}</b></a></button>
+                          <ul class="dropdown-menu">
+                            <!-- <li><a class="dropdown-item" >Orders</a></li> -->
+                            <li><a routerLink="/orders" class="dropdown-item">Orders</a></li>
+                            <li><a (click)="logout()" class="dropdown-item">LogOut</a></li>
+                          </ul>
+                        </li>
+               </div >&nbsp;&nbsp;&nbsp;
+
+              <!-- <li class="nav-item"><button style="border-radius: 20px; width: 115px; border: 1px; background: #E75146;">
+                <a class="nav-link text-light" routerLink="/admin" >
+              <i class="fa-sharp fa-solid fa-life-ring"></i>&nbsp;
+                  <b>Help</b></a></button></li>&nbsp;&nbsp;&nbsp; -->
+              
+              <li *ngIf="islogin" class="nav-item"><button style="border-radius: 20px; width: 115px; border: 1px; background: #E75146;">
+                <a class="nav-link text-light" routerLink="/cart">
+                  <i class="fa-solid fa-cart-shopping"></i>&nbsp;
+                  <b>Cart</b>
+                  <span class="badge bg-light text-dark ms-1 rounded-pill">{{cartItemCount}}</span>
+              </a></button></li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+<!-- offcanvas login -->
+
+
+            <div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div id="mdcontent" class="modal-content ">
+                    
+                    <div id="abc" class="modal-body" >
+                      <div id="def" class="main">  	
+                        <input type="checkbox" id="chk" aria-hidden="true">
+                    
+                        <div class="signup">
+                                      <form (ngSubmit)="signup()" [formGroup]="signupForm" >
+                                          <label for="chk" aria-hidden="true">Sign UP</label>
+                                          <input class="inputs" name="user" formControlName="user"  type="text" placeholder="User name" required="">
+                                <div *ngIf="this.signupForm.get('user')?.errors&&this.signupForm.get('user')?.touched" class="text-danger text-center m-2">Invalid Username</div>
+                      
+                                          <input class="inputs" name="email" formControlName="email" type="email"  placeholder="Email" required="">
+                                <div *ngIf="this.signupForm.get('email')?.errors&&this.signupForm.get('email')?.touched" class="text-danger text-center m-2">Invalid Email</div>
+                      
+                                          <input class="inputs" name="pswd" formControlName="pswd" type="password"  placeholder="Password" required="">
+                                <div *ngIf="this.signupForm.get('pswd')?.errors&&this.signupForm.get('pswd')?.touched" class="text-danger text-center m-2">Invalid Password</div>
+                      
+                                          <button class="btns"  type="submit">Sign up</button>
+                                      </form>
+                                  </div>
+                      
+                                  <div class="login">
+                                      <form (ngSubmit)="login()" [formGroup]="loginForm">
+                                          <label for="chk" aria-hidden="true">Log IN</label>
+                                          <input class="inputs" name="email" formControlName="email" type="email"  placeholder="Email" required="">
+                                <div *ngIf="this.loginForm.get('email')?.errors&&this.loginForm.get('email')?.touched" class="text-danger text-center m-2">Invalid Email</div>
+                                
+                                          <input class="inputs" name="pswd" formControlName="pswd" type="password"  placeholder="Password" required="">
+                                <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched" class="text-danger text-center m-2">Invalid Password</div>
+                                <div class="text-danger text-center">{{errormsg}}</div>
+                                 
+                                          <button class="btns" id="btn1" type="submit" (click)="refresh()"  data-bs-dismiss="modal">Log in &nbsp;
+                                          </button>
+                                      </form>
+                                  </div>
+              
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            

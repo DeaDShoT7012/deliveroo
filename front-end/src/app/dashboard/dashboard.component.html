@@ -1,0 +1,76 @@
+
+<!-- Header-->
+<header class="main"  style="width: 100%; height:800px;"></header>
+
+
+<!-- section bands -->
+<div >
+    <div class="text2"><h2>Top Brands For You</h2></div>
+        <section>
+               <div class="center">
+                       
+                        <div class="rows">
+                            <div class="cols">
+                                <img class="img" src="https://b.zmtcdn.com/data/brand_creatives/logos/466f8fc74274145f3b21795c3d21816d_1589433910.png?output-format=webp" alt=""><p class="text-center my-2"><b>KFC</b></p >
+                                    <p class="text-center "><b>18 min</b></p >
+                            </div>
+                            <div class="cols">
+                                <img class="img" src="https://b.zmtcdn.com/data/brand_creatives/logos/9742d760cf95e9dbf9b869ca9c753f8f_1613213868.png?output-format=webp" alt=""><p class="text-center my-2"><b>Pizza Hut</b></p >
+                                    <p class="text-center my-2"><b>24 min</b></p >
+                            </div>
+                            <div class="cols">
+                                <img class="img" src="https://b.zmtcdn.com/data/brand_creatives/logos/6dc0e9dfb1230b4f2b40cb10edf4af58_1604638483.png?output-format=webp" alt=""><p class="text-center my-2"><b>Arabian Grill</b></p >
+                                    <p class="text-center my-2"><b>25 min</b></p >
+                            </div>
+                            <div class="cols">
+                                <img class="img" src="https://b.zmtcdn.com/data/brand_creatives/logos/c134bfdb6548be563b8c8547b5e63003_1610003154.png" alt=""><p class="text-center my-2"><b>Amma's Pastries</b></p >
+                                    <p class="text-center my-2"><b>19 min</b></p >
+                            </div>
+                            <div class="cols">
+                                <img class="img" src="https://b.zmtcdn.com/data/brand_creatives/logos/62a19e4fb554b54fc721121a6ff3ddb0_1675075800.png?output-format=webp" alt=""><p class="text-center my-2"><b>Baskin Robins</b></p >
+                                    <p class="text-center my-2"><b>40 min</b></p >
+                            </div>
+                        </div>
+               </div >
+        </section>
+</div>
+
+  <!-- Section products-->
+ <div class="sky">
+       <div class="text2"><h1>Delivery Restaurents In Thrissur</h1></div>
+    
+      <section class="py-3" >
+        
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col  mb-5" *ngFor="let product of products">
+                    
+                            <div style="height: 350px; border-color: white;;"  class="card">
+                                 <!-- Product image-->
+                                 <a style="text-decoration: none; color: black;" routerLink="view-products/{{product.id}}">
+                                <img height="200px" style="border-radius: 3%" class="card-img-top" [src]="product.image" [alt]="" />
+                                 <!-- Product details-->
+                                 <div class="card-body" style="background: rgba(250,246,247,255);"> 
+                                     <div class="text-center">
+                                         <!-- Product name-->
+                                         <h5 class="fw-bolder">{{product.title}}</h5>
+                                         <!-- Product category -->
+                                         <p class="category">{{product.category}}</p>
+                                         <!-- rating -->
+                                         <p><span class="fa-regular fa-star checked ">{{product.rating.rate}}</span >&nbsp;&nbsp;&nbsp;&nbsp;  |&nbsp;&nbsp;&nbsp;&nbsp;   {{product.time}} mins</p>
+                                     </div>
+                                </div>
+                            </a>
+                            </div>
+                      
+                    </div>
+                </div>
+            </div>
+        
+    </section>  
+ </div>    
+
+     
+
+
+
